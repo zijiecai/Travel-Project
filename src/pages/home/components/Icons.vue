@@ -1,15 +1,27 @@
 <template>
-  <div class="icons">
-    <swiper>
-      <swiper-slide v-for="(page, index) in pages" :key="index">
-        <div class="icon" v-for="item in page" :key="item.id">
-          <div class="icon-img">
-            <img class="icon-img-content" :src="item.imgUrl" alt="" />
+  <div class="container">
+    <div class="icons">
+      <swiper>
+        <swiper-slide v-for="(page, index) in pages" :key="index">
+          <div class="icon" v-for="item in page" :key="item.id">
+            <div class="icon-img">
+              <img class="icon-img-content" :src="item.imgUrl" alt="" />
+            </div>
+            <p class="icon-desc">{{ item.desc }}</p>
           </div>
-          <p class="icon-desc">{{ item.desc }}</p>
-        </div>
-      </swiper-slide>
-    </swiper>
+        </swiper-slide>
+      </swiper>
+    </div>
+    <div class="other-info border-bottom">
+      <div class="location flex-item">
+        <span class="iconfont">&#xe683;</span>
+        北京
+      </div>
+      <div class="billboard flex-item">
+        <span class="iconfont">&#xe642;</span>
+        必游榜单
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -129,4 +141,13 @@ export default {
       text-align center
       color $darkTextColor
       ellipsis()
+.other-info
+  display flex
+  padding 0.2rem
+  .flex-item
+    flex 1
+    text-align center
+    padding 0.06rem
+  .location
+    border-right 0.04rem solid #f3f3f1
 </style>
