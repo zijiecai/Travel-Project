@@ -2,11 +2,7 @@
   <div class="weekend">
     <div class="title">周末去哪儿</div>
     <ul>
-      <li
-        class="item border-bottom"
-        v-for="item in recommendList"
-        :key="item.id"
-      >
+      <li class="item border-bottom" v-for="item in weekendList" :key="item.id">
         <div class="item-img-wrapper">
           <img class="item-img" :src="item.imgUrl" alt="" />
         </div>
@@ -22,31 +18,13 @@
 export default {
   name: "HomeWeekend",
   data() {
-    return {
-      recommendList: [
-        {
-          id: "0001",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/source/1510/6e/1ea71e2f04e.jpg_r_640x214_aa6f091d.jpg",
-          title: "故宫",
-          desc: "东方宫殿建筑代表，世界宫殿建筑典范",
-        },
-        {
-          id: "0002",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/source/1510/6e/1ea71e2f04e.jpg_r_640x214_aa6f091d.jpg",
-          title: "南山滑雪场",
-          desc: "北京专业级滑雪圣地",
-        },
-        {
-          id: "0003",
-          imgUrl:
-            "http://img1.qunarzz.com/sight/source/1510/6e/1ea71e2f04e.jpg_r_640x214_aa6f091d.jpg",
-          title: "天安门广场",
-          desc: "我爱北京天安门，天安门上太阳升",
-        },
-      ],
-    };
+    return {};
+  },
+  props: {
+    weekendList: {
+      type: Array,
+      defalut: [],
+    },
   },
   methods: {},
 };
@@ -60,7 +38,7 @@ export default {
 .item-img-wrapper
   overflow hidden
   height 0
-  padding-bottom 33.9%
+  padding-bottom 37.09%
   .item-img
     width 100%
 .item-info

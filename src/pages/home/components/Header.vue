@@ -13,7 +13,7 @@
         />
       </div>
       <div slot="right" class="right">
-        城市<span class="iconfont arrow-icon">&#xe647;</span>
+        {{ city }}<span class="iconfont arrow-icon">&#xe647;</span>
       </div>
     </nav-bar>
   </div>
@@ -23,6 +23,12 @@
 import NavBar from "components/common/NavBar";
 export default {
   name: "HomeHeader",
+  props: {
+    city: {
+      type: String,
+      default: "北京",
+    },
+  },
   components: {
     NavBar,
   },
@@ -64,6 +70,7 @@ export default {
   /* Internet Explorer 10+ */
   color #ccc
 .right
+  font-size 0.3rem
   .arrow-icon
     font-size 0.24rem
 </style>

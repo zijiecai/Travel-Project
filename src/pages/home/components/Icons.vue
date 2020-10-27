@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="icons">
-      <swiper>
+      <swiper :options="swiperOptions">
         <swiper-slide v-for="(page, index) in pages" :key="index">
           <div class="icon" v-for="item in page" :key="item.id">
             <div class="icon-img">
@@ -29,63 +29,16 @@ export default {
   name: "HomeIcons",
   data() {
     return {
-      iconList: [
-        {
-          id: "0001",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-          desc: "景点门票",
-        },
-        {
-          id: "0002",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-          desc: "景点门票",
-        },
-        {
-          id: "0003",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-          desc: "景点门票",
-        },
-        {
-          id: "0004",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-          desc: "景点门票",
-        },
-        {
-          id: "0005",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-          desc: "景点门票",
-        },
-        {
-          id: "0006",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-          desc: "景点门票",
-        },
-        {
-          id: "0007",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-          desc: "景点门票",
-        },
-        {
-          id: "0008",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-          desc: "景点门票",
-        },
-        {
-          id: "0009",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-          desc: "景点门票",
-        },
-      ],
+      swiperOptions: {
+        autoplay: false,
+      },
     };
+  },
+  props: {
+    iconList: {
+      type: Array,
+      required: true,
+    },
   },
   computed: {
     pages() {

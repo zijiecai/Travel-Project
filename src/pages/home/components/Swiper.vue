@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOptions">
+    <swiper :options="swiperOptions" v-if="showSwiper">
       <swiper-slide v-for="item in swiperList" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl" alt="景点图" />
       </swiper-slide>
@@ -11,32 +11,29 @@
 <script>
 export default {
   name: "HomeSwiper",
+  props: {
+    swiperList: {
+      type: Array,
+      requied: true,
+    },
+  },
   data() {
     return {
       swiperOptions: {
         pagination: {
           el: ".swiper-pagination",
           type: "bullets",
-          dynamicBullets: true,
-          bulletElement: "span", //设置分页器小圆点标签，默认为span标签
-          // 点击分页器的指示点分页器会控制Swiper切换
           clickable: true,
         },
+        autoplay: true,
         loop: true,
       },
-      swiperList: [
-        {
-          id: "0001",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1801/1a/94428c6dea109402.jpg_640x200_2cf590d8.jpg",
-        },
-        {
-          id: "0002",
-          imgUrl:
-            "http://img1.qunarzz.com/piao/fusion/1802/42/7c92b9a381e46402.jpg_640x200_1cdce2a4.jpg",
-        },
-      ],
     };
+  },
+  computed: {
+    showSwiper() {
+      return this.swiperList.length;
+    },
   },
   methods: {},
 };
