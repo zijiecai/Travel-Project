@@ -12,9 +12,11 @@
           placeholder="请输入城市/景点/游玩主题"
         />
       </div>
-      <div slot="right" class="right">
+      <!-- <router-link to="/city"> -->
+      <div slot="right" class="right" @click="goToCity">
         {{ city }}<span class="iconfont arrow-icon">&#xe647;</span>
       </div>
+      <!-- </router-link> -->
     </nav-bar>
   </div>
 </template>
@@ -27,6 +29,11 @@ export default {
     city: {
       type: String,
       default: "北京",
+    },
+  },
+  methods: {
+    goToCity() {
+      this.$router.push("/city");
     },
   },
   components: {
@@ -70,6 +77,7 @@ export default {
   /* Internet Explorer 10+ */
   color #ccc
 .right
+  color #fff
   font-size 0.3rem
   .arrow-icon
     font-size 0.24rem
